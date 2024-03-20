@@ -36,3 +36,24 @@ Actiepunten:
 
 Volgende Vergadering: 
 Datum: 16 Maart 2024
+
+
+## Verslag 3
+### Verslag Teams Vergadering - Zaterdag 16 Maart
+
+Besproken Punten:
+1.	Hosting van de Server:  
+•	Besloten is om geen lokale host te gebruiken, maar in plaats daarvan een server aan te vragen van de school.
+2.	Aanpassingen aan het ERD:  
+•	Het Entity-Relationship Diagram (ERD) zal worden aangepast. De klasse "reminder" zal worden ingebed binnen de klasse "uitlening".
+3.	Suggesties voor Gebruikers- en Beheerdersrollen:  
+•	Er zijn suggesties gedaan om een supertype te creëren dat zowel beheerders als gebruikers omvat, met beiden als subtypes. Ook werd besproken om een functie toe te voegen waarmee beheerders gebruikers kunnen blacklisten en vice versa.
+4.	Overwegingen voor QR-codes:  
+•	Twijfels zijn geuit over het gebruik van QR-codes waarmee beheerders nieuwe apparatuur aan het systeem kunnen toevoegen.
+
+Actiepunten:  
+•	Ilyas zal de server aanvragen bij een van de docenten.  
+•	Ilyas zal ook het verbeterde ERD met de groep delen.
+
+Volgende Vergadering:   
+Datum: 23 Maart 2024
