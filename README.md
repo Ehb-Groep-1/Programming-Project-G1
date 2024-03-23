@@ -20,7 +20,7 @@ Datum: 2 Maart 2024 is geselecteerd.
 
 
 ## Verslag 2
-### Verslag Teams Vergadering - Zaterdag 02 Maart
+### Verslag Teams Vergadering - Zondag 02 Maart
 
 Besproken Punten:
 1.	Bespreking van de skill-level van elke deelnemer.
