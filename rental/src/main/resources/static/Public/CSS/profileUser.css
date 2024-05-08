@@ -1,0 +1,74 @@
+.screen-container {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#logo-top {
+    height: 80px; /* Set a fixed height */
+    width: auto; /* Let the width adapt to the height */
+}
+
+.red-line {
+    width: 47%;
+    height: 2px;
+    background-color: #e40613;
+    margin: 20px auto;
+}
+
+#user-picture {
+    height: 100px; /* Set a fixed height */
+    width: auto; /* Let the width adapt to the height */
+    margin-bottom: 20px;
+}
+
+.account-info {
+    width: 200px; /* Set the same width as the button field */
+    margin: 0 auto; /* Center the account information */
+    padding: 10px; /* Add padding */
+    padding-bottom: 0;
+}
+
+.account-info ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.account-info ul li {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 10px;
+    border: 2px solid black; /* Add border */
+    border-radius: 5px; /* Add rounded corners */
+    padding: 8px; /* Add padding */
+}
+
+button[type="submit"] {
+    margin-top: 0; /* Add margin to separate button from account information */
+    padding: 10px 50px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+button[type="submit"]:hover {
+    background-color: #333; /* Darken background color on hover */
+}
+
+.band-end-container {
+    text-align: center; /* Center the content horizontally */
+}
+
+.band-end {
+    margin-top: 10px; /* Add margin to separate button from account information */
+    padding: 7px 67px;
+    cursor: pointer;
+    color: white;
+    background-color: #e40613;
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Ensure the width is determined by content */
+    width: auto; /* Let the width adapt to the content */
+}
+
