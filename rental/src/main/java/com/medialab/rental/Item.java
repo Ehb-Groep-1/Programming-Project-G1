@@ -1,19 +1,22 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
-@Entity
+@Entity(name = "Item")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemID;
-    private int lastUserID, availableQuantity;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User lastUserID;
+    private int availableQuantity;
     private String nameItem, descriptionItem;
 
-    public Item(String name, String description, int lastUser, int availableQuantity) {
+    public Item(String name, String description, int availableQuantity) {
         this.nameItem = name;
         this.descriptionItem = description;
-        this.lastUserID = lastUser;
         this.availableQuantity = availableQuantity;
     }
 
@@ -22,12 +25,9 @@ public class Item {
     }
 
     public int getLastUserID() {
-        return lastUserID;
+        return lastUserID.getUserID();
     }
 
-    public void setLastUserID(int lastUserID) {
-        this.lastUserID = lastUserID;
-    }
 
     public int getAvailableQuantity() {
         return availableQuantity;
