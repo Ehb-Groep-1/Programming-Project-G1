@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +15,16 @@ public class User {
     private String username, password, email, phoneNumber, adres;
     private int rentalCount;
     private LocalDate banStartDate, banEndDate;
+    protected UserRole role;
 
-    public User(String username, String password, String email, String phoneNumber, String adres, int rentalCount) {
+    public User(String username, String password, String email, String phoneNumber, String adres, int rentalCount, UserRole role) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.adres = adres;
         this.rentalCount = rentalCount;
+        this.role = role;
     }
 
     public int getUserID() {
