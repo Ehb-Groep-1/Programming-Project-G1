@@ -1,29 +1,36 @@
 package com.medialab.rental;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity(name = "User")
+@Entity
+@Table(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int userID;
-    private String username, password, email, phoneNumber, adres;
-    private int rentalCount;
-    private LocalDate banStartDate, banEndDate;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password_hash")
+    private String password;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+    @Column(name = "address")
+    private String address;
+//    private LocalDate banStartDate, banEndDate;
+    @Column(name = "role")
     protected UserRole role;
 
-    public User(String username, String password, String email, String phoneNumber, String adres, int rentalCount, UserRole role) {
+    public User(String username, String password, String email, String phoneNumber, String adres, UserRole role) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.adres = adres;
-        this.rentalCount = rentalCount;
+        this.address = adres;
         this.role = role;
     }
 
@@ -44,18 +51,15 @@ public class User {
     }
 
     public String getAdres() {
-        return adres;
+        return address;
     }
 
-    public int getRentalCount() {
-        return rentalCount;
-    }
-
+/*
     protected void setBanStartDate(LocalDate banStartDate) {
         this.banStartDate = banStartDate;
     }
 
     protected void setBanEndDate(LocalDate banEndDate) {
         this.banEndDate = banEndDate;
-    }
+    }*/
 }

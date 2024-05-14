@@ -3,14 +3,26 @@ package com.medialab.rental;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Equipment")
 public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int equipmentID;
-    private String name, description, type;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "quantity_available")
     private int availableQuantity;
-    @Id
-    private int lastUserID, equipmentReservationId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User lastUserID;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private EquipmentReservation equipmentReservationId;
 
     public Equipment(String name, String description, String type, int availableQuantity) {
         this.name = name;
