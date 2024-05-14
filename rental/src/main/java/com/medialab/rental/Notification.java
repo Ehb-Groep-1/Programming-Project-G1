@@ -5,19 +5,29 @@ import org.hibernate.annotations.Fetch;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "Notification")
+@Entity
+@Table(name = "Notification")
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
-    private String message;
+    @Column(name = "message")
+    private final String message;
+    @Column(name = "date_sent")
     private final LocalDateTime dateSent;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
-    private int userID;
+    private User user;
+
     public Notification(String message, LocalDateTime dateSent) {
         this.message = message;
         this.dateSent = dateSent;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

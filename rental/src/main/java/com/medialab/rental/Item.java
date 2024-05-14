@@ -3,16 +3,22 @@ package com.medialab.rental;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
-@Entity(name = "Item")
+@Entity
+@Table(name = "Item")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int itemID;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     private User lastUserID;
+    @Column(name = "quantity_available")
     private int availableQuantity;
-    private String nameItem, descriptionItem;
+    @Column(name = "name")
+    private String nameItem;
+    @Column(name = "description")
+    private String descriptionItem;
 
     public Item(String name, String description, int availableQuantity) {
         this.nameItem = name;
