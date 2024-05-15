@@ -11,7 +11,7 @@ public class Item {
     @Column(name = "id")
     private int itemID;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "last_user_id")
     private User lastUserID;
     @Column(name = "quantity_available")
     private int availableQuantity;
