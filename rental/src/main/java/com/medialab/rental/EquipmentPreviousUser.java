@@ -42,4 +42,17 @@ public class EquipmentPreviousUser {
         return returnDate;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }

@@ -13,9 +13,9 @@ public class Notification {
     @Column(name = "id")
     private int id;
     @Column(name = "message")
-    private final String message;
+    private String message;
     @Column(name = "date_sent")
-    private final LocalDateTime dateSent;
+    private LocalDateTime dateSent;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
@@ -24,6 +24,10 @@ public class Notification {
     public Notification(String message, LocalDateTime dateSent) {
         this.message = message;
         this.dateSent = dateSent;
+    }
+
+    public Notification() {
+
     }
 
     public void setUser(User user) {

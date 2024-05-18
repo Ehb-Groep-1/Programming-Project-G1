@@ -21,7 +21,7 @@ public class User {
     private String phoneNumber;
     @Column(name = "address")
     private String address;
-//    private LocalDate banStartDate, banEndDate;
+    private LocalDate banStartDate, banEndDate;
     @Column(name = "role")
     protected UserRole role;
 
@@ -54,12 +54,12 @@ public class User {
         return address;
     }
 
-/*
+
     protected void setBanStartDate(LocalDate banStartDate) {
         this.banStartDate = banStartDate;
     }
 
     protected void setBanEndDate(LocalDate banEndDate) {
         this.banEndDate = banEndDate;
-    }*/
+    }
 }
