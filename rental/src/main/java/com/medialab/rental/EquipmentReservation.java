@@ -28,6 +28,26 @@ public class EquipmentReservation {
         this.endDate = end;
     }
 
+    public EquipmentReservation() {
+        // default constructor nog toevoegen
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
     public void setStartDate(LocalDate date) {
         this.startDate = date;
     }
