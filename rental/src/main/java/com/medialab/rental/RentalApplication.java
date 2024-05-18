@@ -13,7 +13,7 @@ import java.util.Map;
 
 @SpringBootApplication
 @RestController
-@EnableJpaRepositories(basePackages = "com.medialab.rental.repository")
+//@EnableJpaRepositories(/*basePackages = "com.medialab.rental.repository"*/)
 
 public class RentalApplication {
 

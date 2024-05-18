@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Table(name = "EquipmentPreviousUser")
 public class EquipmentPreviousUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @OneToOne(fetch = FetchType.LAZY)

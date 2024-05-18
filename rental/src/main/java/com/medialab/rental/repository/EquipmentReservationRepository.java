@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface EquipmentReservationRepository extends JpaRepository<EquipmentReservation, Integer> {
 
-    List<EquipmentReservation> findByUserId(int userID);
+//    List<EquipmentReservation> findByUserId(int userID);
 }

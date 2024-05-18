@@ -9,14 +9,14 @@ import java.time.LocalDate;
 @Table(name = "EquipmentReservation")
 public class EquipmentReservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "item_id")
     private Item item;
     @Column(name = "start_date")
     private LocalDate startDate;

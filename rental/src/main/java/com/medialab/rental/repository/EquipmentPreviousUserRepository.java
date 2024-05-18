@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface EquipmentPreviousUserRepository extends JpaRepository<EquipmentPreviousUser, Integer> {
 
-    List<EquipmentPreviousUser> findByEquipmentId(int equipmentID);
+//    List<EquipmentPreviousUser> findByEquipmentId(int equipmentID);
 
 }
