@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface CurrentItemUserRepository extends JpaRepository<CurrentItemUser, Integer> {
 
-    List<CurrentItemUser> findByUserId(int userID);
-
-    List<CurrentItemUser> findByItemId(int itemID);
+//    List<CurrentItemUser> findByUserId(int userID);
+//
+//    List<CurrentItemUser> findByItemId(int itemID);
 
 
 }

@@ -7,7 +7,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Table(name = "Item")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int itemID;
     @OneToOne(fetch = FetchType.LAZY)
