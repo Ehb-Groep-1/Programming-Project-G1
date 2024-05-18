@@ -31,6 +31,34 @@ public class Equipment {
         this.availableQuantity = availableQuantity;
     }
 
+    public Equipment() {
+        // default constructor nog afwerken, vragen naar wat gemiddeld materiaal
+    }
+
+    public int getEquipmentID() {
+        return equipmentID;
+    }
+
+    public void setEquipmentID(int equipmentID) {
+        this.equipmentID = equipmentID;
+    }
+
+    public User getLastUserID() {
+        return lastUserID;
+    }
+
+    public void setLastUserID(User lastUserID) {
+        this.lastUserID = lastUserID;
+    }
+
+    public EquipmentReservation getEquipmentReservationId() {
+        return equipmentReservationId;
+    }
+
+    public void setEquipmentReservationId(EquipmentReservation equipmentReservationId) {
+        this.equipmentReservationId = equipmentReservationId;
+    }
+
     public String getName() {
         return name;
     }
@@ -63,3 +91,4 @@ public class Equipment {
         this.availableQuantity = availableQuantity;
     }
 }
+

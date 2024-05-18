@@ -1,5 +1,5 @@
 package com.medialab.rental;
 
 public enum UserRole {
-    normal, admin;
+    NORMAL, ADMIN; // ENUM in hoofdletter volgens JavaDoc
 }
