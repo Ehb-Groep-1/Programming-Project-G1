@@ -1,8 +1,11 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.support.ManagedArray;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Map;
 
 @Entity
 @Table(name = "User")
@@ -60,10 +63,27 @@ public class User {
         return address;
     }
 
+    public LocalDate getBanned_date() {
+        return banned_date;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
 
 //    protected void setBanStartDate(LocalDate banStartDate) {
 //        this.banStartDate = banStartDate;
 //    }
+
+    public Map<String, String> userDetails() {
+        return Map.of("id", Integer.toString(getUserID()),
+                "userName", getUsername(),
+                "email", getEmail(),
+                "phonenr", getPhoneNumber(),
+                "address", getAdres(),
+                "role", role.name(),
+                "banDate", getBanned_date() + "");
+    }
 
 //    protected void setBanEndDate(LocalDate banEndDate) {
 //        this.banEndDate = banEndDate;

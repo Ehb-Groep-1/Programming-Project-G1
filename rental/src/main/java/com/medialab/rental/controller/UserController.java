@@ -23,10 +23,10 @@ public class UserController {
         try {
 //        System.out.println(response);
 //        System.out.println(response.get("userName"));
-            System.out.println(userService.getCustomer("Admin"));
-            return response;
+//            System.out.println(userService.getCustomer(response.get("userName")).userDetails());
+            return userService.getCustomer(response.get("userName")).userDetails();
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
         return null;
     }

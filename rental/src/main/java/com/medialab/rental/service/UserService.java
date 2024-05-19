@@ -26,7 +26,7 @@ public class UserService {
             System.out.println("This is the name of the user: " + myUser.getUsername());
             return myUser;
         } catch (Exception e) {
-            System.err.println(e.getCause());
+            System.err.println(e.getMessage());
         }
         return null;
     }
