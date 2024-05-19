@@ -1,7 +1,9 @@
 package com.medialab.rental;
 
+import com.medialab.rental.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootApplication
-@RestController
-//@EnableJpaRepositories(/*basePackages = "com.medialab.rental.repository"*/)
+@EnableJpaRepositories(basePackages = "com.medialab.rental.repository")
+//@RestController
 
 public class RentalApplication {
 
@@ -21,16 +23,11 @@ public class RentalApplication {
         SpringApplication.run(RentalApplication.class, args);
     }
 
-    @GetMapping("/api/hello")
-    public Map<String, String> indexApi() {
-        HashMap<String, String> response = new HashMap<>();
-        response.put("message", "Application is running");
-        return response;
-    }
+//    @GetMapping("/api/hello")
+//    public Map<String, String> indexApi() {
+//        HashMap<String, String> response = new HashMap<>();
+//        response.put("message", "Application is running");
+//        return response;
+//    }
 
-    @PostMapping("/api/login")
-    public Map<String, String> loginUser(@RequestBody Map<String, String> response) {
-        System.out.println(response);
-        return response;
-    }
 }

@@ -8,8 +8,8 @@ public class Admin extends User {
     }
 
     public void banUser(User user, LocalDate begin, LocalDate end) {
-        user.setBanStartDate(begin);
-        user.setBanEndDate(end);
+//        user.setBanStartDate(begin);
+//        user.setBanEndDate(end);
     }
 
     public void addAdmin(User user) {

@@ -8,9 +8,9 @@ import java.time.LocalDate;
 @Table(name = "User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int userID;
+    private int id;
     @Column(name = "username")
     private String username;
     @Column(name = "password_hash")
@@ -21,7 +21,8 @@ public class User {
     private String phoneNumber;
     @Column(name = "address")
     private String address;
-    private LocalDate banStartDate, banEndDate;
+    @Column(name = "banned_date")
+    private LocalDate banned_date;
     @Column(name = "role")
     protected UserRole role;
 
@@ -34,8 +35,12 @@ public class User {
         this.role = role;
     }
 
+    public User() {
+
+    }
+
     public int getUserID() {
-        return userID;
+        return id;
     }
 
     public String getUsername() {
@@ -55,11 +60,11 @@ public class User {
     }
 
 
-    protected void setBanStartDate(LocalDate banStartDate) {
-        this.banStartDate = banStartDate;
-    }
+//    protected void setBanStartDate(LocalDate banStartDate) {
+//        this.banStartDate = banStartDate;
+//    }
 
-    protected void setBanEndDate(LocalDate banEndDate) {
-        this.banEndDate = banEndDate;
-    }
+//    protected void setBanEndDate(LocalDate banEndDate) {
+//        this.banEndDate = banEndDate;
+//    }
 }
