@@ -13,6 +13,6 @@ public class Admin extends User {
     }
 
     public void addAdmin(User user) {
-        user.role = UserRole.ADMIN;
+        user.role = UserRole.admin;
     }
 }
