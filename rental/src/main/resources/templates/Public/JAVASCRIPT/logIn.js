@@ -1,4 +1,6 @@
+import { adminProfile } from "./adminProfile";
 document.addEventListener('DOMContentLoaded', () => {
+const renderDiv = document.querySelector(".render");
 const loginForm = document.getElementById("login-form");
 const login = async (e) => {
     e.preventDefault();
@@ -27,6 +29,17 @@ const login = async (e) => {
         return data.json();
     }).catch(err => console.error(err))
     console.log(response);
+    if(response) {
+        console.log("correct");
+        if(response.role == "admin") {
+            console.log("you are an admin");
+            renderDiv.innerHTML = adminProfile();
+        } else {
+            console.log("Normal user.");
+        }
+    } else {
+        console.log("Wrong username or password!");
+    }
 }
 loginForm.addEventListener('submit', login);
 });
