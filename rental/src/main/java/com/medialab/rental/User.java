@@ -23,6 +23,7 @@ public class User {
     private String address;
     @Column(name = "banned_date")
     private LocalDate banned_date;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
     protected UserRole role;
 
