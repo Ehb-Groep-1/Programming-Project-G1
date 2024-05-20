@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
 
 //    @Autowired
 //    public UserService(UserRepository userRepository) {
@@ -19,7 +19,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public User getCustomer(String userName) {
         try {
-            User myUser = userRepository.findUserById(1);
+            User myUser = userRepository.findUserByUsername(userName);
             if (myUser == null) {
                 throw new RuntimeException("User with the following name doesn't exist: " + userName);
             }

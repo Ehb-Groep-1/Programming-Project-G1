@@ -1,21 +1,30 @@
-import { adminProfile } from "./adminProfile";
 document.addEventListener('DOMContentLoaded', () => {
 const renderDiv = document.querySelector(".render");
-const loginForm = document.getElementById("login-form");
+let loginForm = document.getElementById("login-form");
+
+const checkState = () => {
+    const currentState = window.localStorage.getItem('currentState');
+    if(currentState != null) {
+        const convertedState = JSON.parse(currentState);
+        console.log(convertedState);
+        if(convertedState.state == "adminProfile") {
+            console.log("You are an admin.");
+            window.location.href =  '../HTML/Admin/adminInterface.html';
+        } else if(convertedState.state == "normalProfile") {
+            console.log("You are a normal user.");
+            window.location.href =  '../HTML/User/userInterface.html';
+        }
+    } else {
+        console.log("You are not logged in.");
+    }
+}
+
+checkState();
+
 const login = async (e) => {
     e.preventDefault();
-    // console.log("logged in");
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    // const response = await fetch("http://localhost:8080/api/hello")
-    // .then(result => {
-    //     if(!result.ok) {
-    //         throw data.status;
-    //     }
-    //     return result.json();
-    // })
-    // .catch(err => console.error(err));
-    // console.log(response);
     const response = await fetch("http://localhost:8080/api/login", {
         method: 'POST',
         headers: {
@@ -33,15 +42,22 @@ const login = async (e) => {
         console.log("correct");
         if(response.role == "admin") {
             console.log("you are an admin");
-            renderDiv.innerHTML = adminProfile();
+            const pageState = {state: 'adminProfile'};
+            localStorage.setItem('currentState', JSON.stringify(pageState));
+            window.location.href = '../HTML/Admin/adminInterface.html'
         } else {
+            const pageState = {state: 'normalProfile'};
+            localStorage.setItem('currentState', JSON.stringify(pageState));
+            window.location.href = '../HTML/User/userInterface.html'
             console.log("Normal user.");
         }
     } else {
         console.log("Wrong username or password!");
     }
 }
-loginForm.addEventListener('submit', login);
+if(loginForm) {
+    loginForm.addEventListener('submit', login);
+}
 });
 
 // function login(e) {

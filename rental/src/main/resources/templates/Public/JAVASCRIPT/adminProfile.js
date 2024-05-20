@@ -1,5 +1,6 @@
-export const adminProfile = async () => {
-    return `<div class="screen-container">
+export const adminProfile = () => {
+    
+    return (`<div class="screen-container">
     <!-- Logo on top -->
     <img id="logo-top" src="../../PNG-JPG/EhB%20logo%20long.jpeg" alt="Logo">
 
@@ -18,5 +19,5 @@ export const adminProfile = async () => {
 
     <!-- Medialab button -->
     <button id="medialab-button">Medialab</button>
-</div>`;
+</div>`);
 };
