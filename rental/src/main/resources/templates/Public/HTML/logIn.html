@@ -5,32 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/logIn.css">
-    <script type="module" src="../JAVASCRIPT/logIn.js" defer></script>
+    <script src="../JAVASCRIPT/logIn.js"></script>
 </head>
 <body>
-        <div class="login-container">
-            <!-- First picture on top -->
-            <img id="logo-header" src="../PNG-JPG/MediaLab%20Black.png" alt="MediaLab Logo">
+<div class="login-container">
+    <!-- Logo found on the net, check if property rights allow its use -->
+    <img id="logo-header" src="../PNG-JPG/MediaLab%20Black.png" alt="MediaLab Logo">
 
-            <!-- Second picture in the middle -->
-            <img id="logo-school" src="../PNG-JPG/Logo%20EhB.png" alt="School Logo">
+    <!-- Logo of school, maybe ask a better png to the school? -->
+    <img id="logo-school" src="../PNG-JPG/Logo%20EhB.png" alt="School Logo">
 
-            <form id="login-form">
-                <!-- Logo picture + username field have the same height -->
-                <div class="input-container">
-                    <img src="../PNG-JPG/logo%20head.png" alt="School Logo">
-                    <input type="text" id="username" placeholder="Username" required>
-                </div>
-
-                <!-- Logo picture + password field have the same height -->
-                <div class="input-container">
-                    <img src="../PNG-JPG/logo%20lock.png" alt="School Logo">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-
-                <!-- Bottom Login button -->
-                <button type="submit">Login</button>
-            </form>
+    <form id="login-form">
+        <!-- Logo picture + username field have the same height -->
+        <div class="input-container">
+            <img src="../PNG-JPG/logo%20head.png" alt="School Logo">
+            <input type="text" id="username" placeholder="Username" required>
         </div>
+
+        <!-- Logo picture + password field have the same height -->
+        <div class="input-container">
+            <img src="../PNG-JPG/logo%20lock.png" alt="School Logo">
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <!-- Login button -->
+        <button type="button" onclick="login()">Login</button>
+    </form>
+</div>
 </body>
 </html>
