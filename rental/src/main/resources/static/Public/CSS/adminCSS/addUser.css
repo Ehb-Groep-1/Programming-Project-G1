@@ -49,6 +49,7 @@
 }
 
 button[type="submit"] {
+    width: 200px;
     margin-top: 0;
     padding: 10px 50px;
     cursor: pointer;
@@ -60,21 +61,5 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #333;
-}
-
-.band-end-container {
-    text-align: center;
-}
-
-.band-end {
-    margin-top: 10px;
-    padding: 7px 67px;
-    cursor: pointer;
-    color: white;
-    background-color: #e40613;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    width: auto;
 }
 
