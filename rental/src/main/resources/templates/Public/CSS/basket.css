@@ -1,0 +1,84 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    background-color: red;
+}
+
+h1 {
+    margin: auto 40px;
+    color: white;
+}
+
+#logo-link {
+    margin-right: 10px;
+}
+
+#logo1, #logo2 {
+    height: 30px;
+}
+
+.boxes {
+    margin: 0 auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.item-equipment {
+    display: contents;
+}
+
+.notification-image {
+    margin: 0;
+    padding: 0;
+    display: block;
+    align-items: center;
+    text-align: center;
+    height: 60%;
+}
+
+img {
+    height: 100%;
+}
+
+.description {
+    height: 55%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0; /* Removed margin */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-link {
+    width: 25%;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.checkout-link:hover {
+    background-color: darkgray;
+}
+
