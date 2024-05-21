@@ -10,5 +10,8 @@ import java.util.List;
 @Repository
 public interface EquipmentReservationRepository extends JpaRepository<EquipmentReservation, Integer> {
 
-//    List<EquipmentReservation> findByUserId(int userID);
+    EquipmentReservation findByUserId(int userID); //user_id in db
+
+    EquipmentReservation findById(int id);
+
 }
