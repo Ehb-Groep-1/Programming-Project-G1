@@ -8,7 +8,8 @@ import java.util.List;
 @Repository
 public interface ItemRentalHistoryRepository extends JpaRepository<ItemRentalHistory, Integer> {
 
-//    List<ItemRentalHistory> findByUserId(int userID);
-//
-//    List<ItemRentalHistory> findByItemId(int itemID);
+    ItemRentalHistory findByUserId(int userID);
+
+    ItemRentalHistory findByItemId(int itemID);
+
 }
