@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profiel User</title>
-    <link rel="stylesheet" href="../../CSS/profileUser.css">
+    <title>Profile User by Admin</title>
+    <link rel="stylesheet" href="../../CSS/adminCSS/profileUserByAdmin.css">
 </head>
 <body>
 <div class="screen-container">
@@ -25,10 +25,13 @@
     </div>
     <button type="submit">Submit Changes</button>
 </div>
+
+<!-- Just shows the end of the band, can not make changes from this screen -->
 <div class="band-end-container">
     <div class="band-end">Band End</div>
 </div>
-
+<!-- function to delete the account from the database has still to be made -->
+    <button type="submit" id="delete-button">Delete Account</button>
 <script>
     function clearInput(input) {
         input.value = '';

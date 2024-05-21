@@ -78,3 +78,10 @@ button[type="submit"]:hover {
     width: auto;
 }
 
+#delete-button {
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    align-items: center;
+}

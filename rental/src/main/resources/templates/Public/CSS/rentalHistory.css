@@ -12,17 +12,17 @@ body {
 }
 
 #logo-link {
-    margin-right: 10px; /* Adjust the margin between logo1 and logo2 */
+    margin-right: 10px;
 }
 
 #logo1 {
-    width: auto; /* Adjust the width of the logos */
-    height: 20px; /* Adjust the height of the logos */
+    width: auto;
+    height: 20px;
 }
 
 #logo2 {
-    width: auto; /* Adjust the width of the logos */
-    height: 50px; /* Adjust the height of the logos */
+    width: auto;
+    height: 50px;
     padding-left: 45px;
 }
 
@@ -47,14 +47,14 @@ h1 {
     margin-bottom: 0;
 }
 
-.notifications {
+.boxes {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.notification-box, .notification-box-static {
+.dynamic-box, .static-box {
     width: 30%;
     height: 100px;
     margin: 10px 1%;
@@ -66,12 +66,12 @@ h1 {
     position: relative;
 }
 
-.notification-box img {
+.dynamic-box img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.notification-box-static {
+.static-box {
     height: 50px;
     color: white;
     background-color: black;
