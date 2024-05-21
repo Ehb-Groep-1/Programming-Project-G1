@@ -12,17 +12,17 @@ body {
 }
 
 #logo-link {
-    margin-right: 10px;
+    margin-right: 10px; /* Adjust the margin between logo1 and logo2 */
 }
 
 #logo1 {
-    width: auto;
-    height: 20px;
+    width: auto; /* Adjust the width of the logos */
+    height: 20px; /* Adjust the height of the logos */
 }
 
 #logo2 {
-    width: auto;
-    height: 50px;
+    width: auto; /* Adjust the width of the logos */
+    height: 50px; /* Adjust the height of the logos */
     padding-left: 45px;
 }
 
@@ -47,14 +47,14 @@ h1 {
     margin-bottom: 0;
 }
 
-.boxes {
+.notifications {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.dynamic-box, .static-box {
+.notification-box, .notification-box-static {
     width: 30%;
     height: 100px;
     margin: 10px 1%;
@@ -66,12 +66,12 @@ h1 {
     position: relative;
 }
 
-.dynamic-box img {
+.notification-box img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.static-box {
+.notification-box-static {
     height: 50px;
     color: white;
     background-color: black;
