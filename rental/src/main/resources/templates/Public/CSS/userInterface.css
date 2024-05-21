@@ -1,14 +1,14 @@
 .screen-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Make container occupy full viewport height */
 }
 
 #logo-top {
-    height: 50px;
-    width: auto;
+    height: 50px; /* Set a fixed height */
+    width: auto; /* Let the width adapt to the height */
 }
 
 .red-line {
@@ -19,19 +19,19 @@
 }
 
 #user-picture {
-    height: 100px;
-    width: auto;
+    height: 100px; /* Set a fixed height */
+    width: auto; /* Let the width adapt to the height */
     margin-bottom: 20px;
 }
 
 .hyperlinks {
     margin-bottom: 10px;
-    text-align: left;
+    text-align: left; /* Align the text of hyperlinks to the left */
 }
 
 .hyperlinks a {
-    display: flex;
-    align-items: center;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically align items */
     margin-bottom: 15px;
     color: black;
     text-decoration: none;
@@ -40,20 +40,19 @@
 }
 
 .hyperlinks a img {
-    height: 16px;
-    margin-right: 5px;
+    height: 16px; /* Set height to match font size */
+    margin-right: 5px; /* Add spacing between image and text */
 }
 
-#mediaLab-button {
+#medialab-button {
     padding: 10px 33px;
     cursor: pointer;
     color: white;
     background-color: black;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
 }
 
-#mediaLab-button:hover {
-    background-color: #333;
+#medialab-button:hover {
+    background-color: #333; /* Darken background color on hover */
 }
