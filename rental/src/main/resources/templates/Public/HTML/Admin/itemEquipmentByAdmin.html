@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item/Equipment by Admin</title>
+    <link rel="stylesheet" href="../../CSS/adminCSS/adminEquipmentByAdmin.css">
+</head>
+<body>
+<section class="container">
+    <header class="header">
+        <a href="../Admin/adminInterface.html" id="logo-link">
+            <img id="logo1" src="../../PNG-JPG/main-menu-dots.png" alt="Logo 1">
+        </a>
+        <img id="logo2" src="../../PNG-JPG/MediaLab%20Black.png" alt="Logo 2">
+    </header>
+    <hr class="red-line">
+    <section class="search-container">
+        <label for="searchInput"></label><input type="text" id="searchInput" placeholder="Item/Equipment">
+        <button type="button" id="searchButton">Search</button>
+    </section>
+    <section class="boxes">
+        <figure class="item-equipment">
+            <!-- A function has still to be written to use the dummy image as a placeholder -->
+            <div class="item-equipment-image"><img src="../../PNG-JPG/Item-Equipment.png" alt="Item"></div>
+        </figure>
+        <input type="text" class="item-equipment-name" placeholder="Item/Equipment Name">
+        <input type="text" class="description" placeholder="Description">
+        <input type="text" class="price" placeholder="Price"><!-- I don't know yet if we are going to work with prices-->
+        <input type="text" class="quantity-available" placeholder="Quantity Available">
+        <!-- The buttons are static and not functional yet-->
+        <button type="submit" id="submit-changes">Submit Changes</button>
+        <a href="../User/rentalHistory.html" id="rental-history">Rental Users History</a>
+        <!-- The delete button becomes green if the item has been deleted,
+        the admin get then sent back to the mediaLabAdmin-->
+        <button type="submit" id="delete">Delete</button>
+    </section>
+</section>
+</body>
+</html>
