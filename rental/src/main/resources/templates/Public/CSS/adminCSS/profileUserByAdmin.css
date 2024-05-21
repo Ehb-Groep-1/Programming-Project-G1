@@ -1,0 +1,87 @@
+.screen-container {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#logo-top {
+    height: 80px;
+    width: auto;
+}
+
+.red-line {
+    width: 47%;
+    height: 2px;
+    background-color: #e40613;
+    margin: 20px auto;
+}
+
+#main-menu-dots {
+    width: 30px;
+    position: relative;
+    left: -30px; /* Offset the element visually, there is an annoying transparent space that stays clickable */
+}
+
+#user-picture {
+    height: 100px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.account-info {
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.account-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.account-info ul li {
+    text-align: left;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+button[type="submit"] {
+    margin-top: 0;
+    padding: 10px 50px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #333;
+}
+
+.band-end-container {
+    text-align: center;
+}
+
+.band-end {
+    margin-top: 10px;
+    padding: 7px 67px;
+    cursor: default;
+    color: white;
+    background-color: #e40613;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    width: auto;
+}
+
+#delete-button {
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    align-items: center;
+}

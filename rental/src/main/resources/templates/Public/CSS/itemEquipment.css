@@ -1,0 +1,140 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#logo-link {
+    margin-right: 10px;
+}
+
+#logo1 {
+    height: 30px;
+}
+
+#logo2 {
+    height: auto;
+    width: 200px;
+    margin-left: 40px;
+}
+
+.red-line {
+    height: 2px;
+    width: 50%;
+    background-color: red;
+    margin: 0 auto 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+.boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.item-equipment {
+    width: calc(50% - 5px);
+    text-align: center;
+}
+
+.item-equipment-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.item-equipment-name,
+.description {
+    width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.description {
+    padding: 5% 2%;
+}
+
+.price,
+.quantity-available {
+    width: 23.5%;
+    text-align: center;
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.price {
+    margin-left: 20%;
+    margin-right: 20px;
+}
+
+.quantity-available {
+    margin-left: 10px;
+    margin-right: 20%;
+    width: 22%;
+}
+
+.rent,
+.reserve {
+    width: 53%;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    display: block;
+}
+
+.rent {
+    background-color: black;
+
+}
+
+.reserve {
+    background-color: red;
+
+}

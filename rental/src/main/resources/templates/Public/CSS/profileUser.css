@@ -63,7 +63,7 @@ button[type="submit"]:hover {
 .band-end {
     margin-top: 10px; /* Add margin to separate button from account information */
     padding: 7px 67px;
-    cursor: pointer;
+    cursor: default;
     color: white;
     background-color: #e40613;
     border: none; /* Remove default button border */
