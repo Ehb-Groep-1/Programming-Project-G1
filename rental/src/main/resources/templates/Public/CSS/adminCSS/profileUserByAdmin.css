@@ -48,6 +48,15 @@
     padding: 8px;
 }
 
+#rental-history {
+    display: block;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #e40613;
+}
+
 button[type="submit"] {
     margin-top: 0;
     padding: 10px 50px;

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediaLab</title>
-    <link rel="stylesheet" href="../../CSS/adminCSS/mediaLab.css">
+    <!-- It basically looks like the medialab screen, but instead there are users visible and searchable -->
+    <title>Users Library</title>
+    <link rel="stylesheet" href="../../CSS/adminCSS/usersLibrary.css">
 </head>
 <body>
 <div class="container">
@@ -21,34 +22,13 @@
     </section>
     <section class="boxes" id="itemsContainer">
         <div class="staticInput-container">
-            <div class="staticInput">Type
-                <!-- The checkboxes are static options but are intended to create a better visualisation of the product being searched -->
-                <div class="checkboxes">
-                    <label><input type="checkbox"> Item</label>
-                    <label><input type="checkbox"> Equipment</label>
-                </div>
-            </div>
-            <div class="staticInput">Availability
-                <div class="checkboxes">
-                    <label><input type="checkbox"> Available</label>
-                    <label><input type="checkbox"> Unavailable/Reserve</label>
-                </div>
-            </div>
-            <!-- Order might be erased, I don't seem to find the right way to create a function that transform the layout to my desired outcome -->
-            <div class="staticInput">Order
-                <div class="order-options">
-                    <label><input type="radio" name="order" value="list"> List</label>
-                    <label><input type="radio" name="order" value="grid" checked> Grid</label>
-                </div>
-            </div>
         </div>
-        <!-- When clicking on an existing article, this will open its own item file-->
         <article class="item-equipment">
             <div class="item-equipment-content">
                 <div class="item-equipment-image">
                     <img src="../../PNG-JPG/Item-Equipment.png" alt="Item">
                 </div>
-                <div class="item-equipment-name">Item Name</div>
+                <div class="item-equipment-name">User Name</div>
             </div>
         </article>
         <article class="item-equipment">
@@ -56,7 +36,7 @@
                 <div class="item-equipment-image">
                     <img src="../../PNG-JPG/Item-Equipment.png" alt="Item">
                 </div>
-                <div class="item-equipment-name">Item Name</div>
+                <div class="item-equipment-name">User Name</div>
             </div>
         </article>
         <article class="item-equipment">
@@ -64,11 +44,11 @@
                 <div class="item-equipment-image">
                     <img src="../../PNG-JPG/Item-Equipment.png" alt="Item">
                 </div>
-                <div class="item-equipment-name">Item Name</div>
+                <div class="item-equipment-name">User Name</div>
             </div>
         </article>
     </section>
-    <a href="addItem.html" id="add-item/equipment" >Add Item/Equipment</a>
+    <a href="addUser.html" id="add-user" >Add User</a>
 </div>
 </body>
 </html>
