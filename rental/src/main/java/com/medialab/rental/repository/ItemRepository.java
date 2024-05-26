@@ -9,7 +9,9 @@ import java.util.List;
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer> {
 
-//    List<Item> findAll();
+    Item findByNameItem(String name);
+    Item findByLastUserID(int userID); // in db is het last_user_id
+
 
 }
 

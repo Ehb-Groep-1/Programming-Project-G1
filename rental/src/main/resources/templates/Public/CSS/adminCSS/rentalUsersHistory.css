@@ -77,12 +77,3 @@ h1 {
     background-color: black;
 }
 
-.rental-count {
-    border: 2px solid black;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 95%;
-    text-align: center;
-    color: white;
-    background-color: black;
-}

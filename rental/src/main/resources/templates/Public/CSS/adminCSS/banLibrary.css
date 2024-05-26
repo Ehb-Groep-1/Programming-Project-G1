@@ -77,12 +77,14 @@ h1 {
     background-color: black;
 }
 
-.rental-count {
+#new-ban {
+    display: block;
+    text-align: center;
     border: 2px solid black;
     border-radius: 10px;
     margin: 20px auto;
     width: 95%;
-    text-align: center;
     color: white;
-    background-color: black;
+    background-color: red;
+    text-decoration: none;
 }

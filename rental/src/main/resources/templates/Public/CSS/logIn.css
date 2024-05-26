@@ -1,41 +1,47 @@
+/*
+   The process to find the right height, margin, and padding throughout this whole project
+   has been basically a trial and error process, so if you happen to see some random numbers
+   on such measurements, don't change them.
+*/
+
 .login-container {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Adjust if needed */
+    height: 100vh;
 }
 
 #logo-header {
-    height: 80px; /* Set a fixed height */
-    width: auto; /* Let the width adapt to the height */
+    height: 80px;
+    width: auto;
 }
 
 #logo-school {
-    height: auto; /* Set a fixed height */
-    width: 200px; /* Let the width adapt to the height */
+    height: auto;
+    width: 200px;
 }
 
 .input-container {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center;
 }
 
 .input-container img {
-    height: 35px; /* Set a fixed height */
-    width: auto; /* Let the width adapt to the height */
-    margin-right: 10px; /* Adjust margin to separate image and input */
+    height: 35px;
+    width: auto;
+    margin-right: 10px;
 }
 
 input[type="text"],
 input[type="password"],
 button {
-    margin: 20px auto; /* Increase margin for spacing */
+    margin: 20px auto;
     padding: 10px;
     width: 200px;
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 button {
@@ -43,9 +49,9 @@ button {
     cursor: pointer;
     color: white;
     background-color: black;
-    border: none; /* Remove default button border */
+    border: none;
 }
 
 button:hover {
-    background-color: #333; /* Darken background color on hover */
+    background-color: #333;
 }
