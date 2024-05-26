@@ -10,9 +10,10 @@ import java.util.List;
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
-//    List<Reservation> findByUserId(int userID);
-//    List<Reservation> findByEquipmentId(int equipmentID);
-//    List<Reservation> findByReservationDate(LocalDate reservationDate); //intelij gemaakt
-//    List<Reservation> findByReservationDateBetween(LocalDate startDate, LocalDate endDate);//intelij gemaakt
+
+    Reservation findByUserId(int userID); //user_id in db als het niet werkt
+
+    Reservation findById(int id);
+
 
 }
