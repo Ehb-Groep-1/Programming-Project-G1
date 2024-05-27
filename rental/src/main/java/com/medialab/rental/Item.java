@@ -58,4 +58,15 @@ public class Item {
     public void setDescriptionItem(String descriptionItem) {
         this.descriptionItem = descriptionItem;
     }
+
+    @Override
+    public String toString() {
+        return "Item => {\n" +
+                "ID:\t" + getItemID() +
+                "Name:\t" + getNameItem() +
+                "Description:\t" + getDescriptionItem() +
+                "ID of Last User:\t" + getLastUserID() +
+                "Available Quantity:\t" + getAvailableQuantity() +
+                "\n}";
+    }
 }

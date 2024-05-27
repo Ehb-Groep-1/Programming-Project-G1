@@ -19,7 +19,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public User getCustomer(String userName) {
         try {
-            User myUser = userRepository.findUserByUsername(userName);
+            User myUser = userRepository.findByUsername(userName);
             if (myUser == null) {
                 throw new RuntimeException("User with the following name doesn't exist: " + userName);
             }

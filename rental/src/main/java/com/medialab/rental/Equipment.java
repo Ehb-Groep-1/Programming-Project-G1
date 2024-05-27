@@ -90,5 +90,16 @@ public class Equipment {
     public void setAvailableQuantity(int availableQuantity) {
         this.availableQuantity = availableQuantity;
     }
+
+    @Override
+    public String toString() {
+        return "Equipment => {\n" +
+                "ID:\t" + getEquipmentID() +
+                "Name:\t" + getName() +
+                "Description:\t" + getDescription() +
+                "Type:\t" + getType() +
+                "Available Quantity:\t" + getAvailableQuantity() +
+                "ID of Last User:\t" + getLastUserID() + "\n}";
+    }
 }
 
