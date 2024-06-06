@@ -1,8 +1,11 @@
 package com.medialab.rental.service;
 
 import com.medialab.rental.User;
+import com.medialab.rental.UserRole;
+import com.medialab.rental.repository.CurrentItemUserRepository;
 import com.medialab.rental.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,11 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private CurrentItemUserRepository currentItemUserRepository;
 
-//    @Autowired
-//    public UserService(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
     public User getCustomer(String userName) {
@@ -30,4 +33,16 @@ public class UserService {
         }
         return null;
     }
+
+    @Transactional
+    public User registerCustomer(String username, String password, String email, String phoneNumber, String address) {
+        if(userRepository.findByUsername(username) != null) {
+            throw UsernameTakenException.of(username);
+        }
+
+        User user = new User(username,passwordEncoder.encode(password),email,phoneNumber,address, UserRole.normal);
+        userRepository.save(user);
+        return user;
+    }
+
 }

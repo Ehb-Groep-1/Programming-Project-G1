@@ -1,9 +1,7 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.support.ManagedArray;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -70,6 +68,8 @@ public class User {
     public UserRole getRole() {
         return role;
     }
+
+    public String getPassword() { return password; }
 
 //    protected void setBanStartDate(LocalDate banStartDate) {
 //        this.banStartDate = banStartDate;
