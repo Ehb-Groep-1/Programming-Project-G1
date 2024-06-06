@@ -29,10 +29,11 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests((requests) -> requests
                                 .requestMatchers(HttpMethod.POST, "/api/login", "/api/register","/*").permitAll()
-                .requestMatchers(HttpMethod.GET,"/","/*","/register.html","/api/status",
+                .requestMatchers(HttpMethod.GET,"/","/*","/register.html","/api/userinfo",
                         "/CSS/**", "/JAVASCRIPT/**","/PNG-JPG/**").permitAll()
                 .anyRequest().authenticated()
                 )

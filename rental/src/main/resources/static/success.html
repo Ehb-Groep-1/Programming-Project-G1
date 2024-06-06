@@ -1,1 +1,18 @@
-authentication success
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged in</title>
+</head>
+<body>
+<h2>authentication success</h2>
+username: <span id="username"></span>&nbsp;&nbsp;role: <span id="role"></span>
+<script type="module">
+    const response = await fetch('/api/userinfo');
+    const info = await response.json();
+    document.getElementById('username').innerText = info.username;
+    document.getElementById('role').innerText = info.role[0];
+</script>
+</body>
+</html>
