@@ -2,6 +2,7 @@ package com.medialab.rental.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -26,9 +27,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
        UserDetails userDetails = userDetailsService.loadUserByUsername(token.getName());
 
-       boolean matches = passwordEncoder.matches(token.getCredentials().toString(), userDetails.getPassword());
+       boolean matches = userDetails != null && passwordEncoder.matches(token.getCredentials().toString(), userDetails.getPassword());
+       if(!matches){
+           throw new AuthenticationServiceException("Invalid username or password");
+       }
 
-       return matches ? new UsernamePasswordAuthenticationToken(token.getPrincipal(), token.getCredentials(), userDetails.getAuthorities()) : token;
+       return new UsernamePasswordAuthenticationToken(token.getPrincipal(), token.getCredentials(), userDetails.getAuthorities());
     }
 
     @Override

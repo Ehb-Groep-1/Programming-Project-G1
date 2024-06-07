@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profiel User</title>
     <link rel="stylesheet" href="../../CSS/profileUser.css">
+    <script src="/JAVASCRIPT/profile_user.js" type="module"></script>
 </head>
 <body>
 <div class="screen-container">
@@ -14,16 +15,20 @@
     <img id="user-picture" src="../../PNG-JPG/logo%20head.png" alt="User Picture">
 
     <!-- Fields with account information that can be changed when hitting the submit changes button -->
+    <H2 id="dataChanged" style="display: none; color: green">Profile has been updated.</H2>
     <div class="account-info">
         <ul>
-            <li><span>Username:</span> <input type="text" value="JohnDoe" onfocus="clearInput(this)"></li>
-            <li><span>Password:</span> <input type="password" value="*********" onfocus="clearInput(this)"></li>
-            <li><span>Email:</span> <input type="email" value="johndoe@example.com" onfocus="clearInput(this)"></li>
-            <li><span>Phone Number:</span> <input type="tel" value="+1234567890" onfocus="clearInput(this)"></li>
-            <li><span>Address:</span> <input type="text" value="123 Main St, City, Country" onfocus="clearInput(this)"></li>
+            <li><label>Username:</label> <span id="username"></span></li>
+            <li><label>Password:</label> <input id="password" type="password" value="" onfocus="clearInput(this)"></li>
+            <li style="display: none; color: red" id="passwordDifferent">Both password fields need to match.</li>
+            <li><label>Confirm Password:</label> <input id="confirmPassword" type="password" value="" onfocus="clearInput(this)"></li>
+            <li style="display: none; color: red" id="confirmPasswordDifferent">Both password fields need to match.</li>
+            <li><label>Email:</label> <input id="email" type="email" value="johndoe@example.com" onfocus="clearInput(this)"></li>
+            <li><label>Phone Number:</label> <input id="phonenumber" type="tel" value="+1234567890" onfocus="clearInput(this)"></li>
+            <li><label>Address:</label> <input id="address" type="text" value="123 Main St, City, Country" onfocus="clearInput(this)"></li>
         </ul>
     </div>
-    <button type="submit">Submit Changes</button>
+    <button id="changeProfileBtn">Submit Changes</button>
 </div>
 <div class="band-end-container">
     <div class="band-end">Band End</div>

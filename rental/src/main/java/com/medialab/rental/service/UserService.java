@@ -11,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private CurrentItemUserRepository currentItemUserRepository;
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    UserService(UserRepository userRepository, PasswordEncoder passwordEncoder){
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Transactional(readOnly = true)
     public User getCustomer(String userName) {
@@ -32,6 +34,31 @@ public class UserService {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    @Transactional
+    public User saveCustomer(String username, String email, String phoneNumber, String address, UserRole role) {
+        User oldUser = getCustomer(username);
+        oldUser.setEmail(email);
+        oldUser.setPhoneNumber(phoneNumber);
+        oldUser.setAddress(address);
+        oldUser.setRole(role);
+        oldUser.setUsername(username);
+        userRepository.save(oldUser);
+        return oldUser;
+    }
+
+    @Transactional
+    public User saveCustomer(String username, String email, String phoneNumber, String address, UserRole role, String password) {
+        User oldUser = getCustomer(username);
+        oldUser.setEmail(email);
+        oldUser.setPhoneNumber(phoneNumber);
+        oldUser.setAddress(address);
+        oldUser.setRole(role);
+        oldUser.setUsername(username);
+        oldUser.setPassword(passwordEncoder.encode(password));
+        userRepository.save(oldUser);
+        return oldUser;
     }
 
     @Transactional
