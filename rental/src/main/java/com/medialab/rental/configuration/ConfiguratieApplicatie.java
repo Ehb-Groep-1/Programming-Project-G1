@@ -49,8 +49,10 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
                         )
                 .logout((logout) ->
                         logout
-                                .logoutSuccessUrl("/")
+                                .logoutSuccessUrl("/login.html")
                                 .clearAuthentication(true)
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID")
                                 .logoutUrl("/api/logout")
                                 .permitAll());
         return http.build();
