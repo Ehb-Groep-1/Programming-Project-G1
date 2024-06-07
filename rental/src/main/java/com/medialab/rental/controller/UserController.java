@@ -38,6 +38,33 @@ public class UserController {
         return ResponseEntity.ok(userInfo);
     }
 
+    public record UserProfile(String username, String email, String address, String phonenumber){}
+    @GetMapping("/userprofile")
+    public ResponseEntity<UserProfile> userProfile(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.getCustomer(authentication.getName());
+        UserProfile userProfile = new UserProfile(currentUser.getUsername(), currentUser.getEmail(), currentUser.getAdres(), currentUser.getPhoneNumber());
+
+        return ResponseEntity.ok(userProfile);
+    }
+
+    public record UserProfileChange(String password, String email, String address, String phonenumber){}
+    @PutMapping("/userprofile")
+    public ResponseEntity<Void> putUserProfile(@RequestBody UserProfileChange userProfileChange){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.getCustomer(authentication.getName());
+
+        if(userProfileChange.password.isEmpty()) {
+            userService.saveCustomer(authentication.getName(), userProfileChange.email, userProfileChange.phonenumber,
+                    userProfileChange.address, currentUser.getRole());
+        } else {
+            userService.saveCustomer(authentication.getName(), userProfileChange.email, userProfileChange.phonenumber,
+                    userProfileChange.address, currentUser.getRole(), userProfileChange.password);
+        }
+
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping(value = "/register")
     public ResponseEntity<User> registerUser(@RequestBody Map<String, String> response) {
         User created= userService.registerCustomer(response.get("username"), response.get("password"), response.get("email"), response.get("phonenumber"), response.get("address"));

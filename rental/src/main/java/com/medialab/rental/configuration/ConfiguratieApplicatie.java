@@ -32,7 +32,7 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
                 .csrf().disable()
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests((requests) -> requests
-                                .requestMatchers(HttpMethod.POST, "/api/login", "/api/register","/*").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/login", "/api/register","/login.html","/unknown_user.html").permitAll()
                 .requestMatchers(HttpMethod.GET,"/","/*","/register.html","/api/userinfo",
                         "/CSS/**", "/JAVASCRIPT/**","/PNG-JPG/**").permitAll()
                 .anyRequest().authenticated()
@@ -44,6 +44,7 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
                             .passwordParameter("password")
                             .usernameParameter("username")
                             .failureForwardUrl("/unknown_user.html")
+                            .failureUrl("/unknown_user.html")
                             .defaultSuccessUrl("/success.html")
                             .permitAll()
                         )
