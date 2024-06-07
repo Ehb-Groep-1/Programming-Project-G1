@@ -9,10 +9,10 @@ const checkState = () => {
         console.log(convertedState);
         if(convertedState.state == "adminProfile") {
             console.log("You are an admin.");
-            window.location.href =  '../HTML/Admin/adminInterface.html';
+            window.location.href =  '../Admin/adminInterface.html';
         } else if(convertedState.state == "normalProfile") {
             console.log("You are a normal user.");
-            window.location.href =  '../HTML/User/userInterface.html';
+            window.location.href =  '../User/userInterface.html';
         }
     } else {
         console.log("You are not logged in.");
@@ -31,7 +31,7 @@ const login = async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            'userName': username,
+            'username': username,
             'password': password
         })
     }).then(data => {
@@ -44,11 +44,11 @@ const login = async (e) => {
             console.log("you are an admin");
             const pageState = {state: 'adminProfile'};
             localStorage.setItem('currentState', JSON.stringify(pageState));
-            window.location.href = '../HTML/Admin/adminInterface.html'
+            window.location.href = '../Admin/adminInterface.html'
         } else {
             const pageState = {state: 'normalProfile'};
             localStorage.setItem('currentState', JSON.stringify(pageState));
-            window.location.href = '../HTML/User/userInterface.html'
+            window.location.href = '../User/userInterface.html'
             console.log("Normal user.");
         }
     } else {
