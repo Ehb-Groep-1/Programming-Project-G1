@@ -28,7 +28,6 @@ public class UserController {
         this.authenticationProvider = authenticationProvider;
         this.userDetailsService = userDetailsService;
     }
-
     public record UserInfo(String username, List<String> role){}
 
     @GetMapping("/userinfo")
