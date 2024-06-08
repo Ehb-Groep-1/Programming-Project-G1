@@ -16,20 +16,20 @@
     <img id="logo-school" src="../PNG-JPG/Logo%20EhB.png" alt="School Logo">
 
     <form id="login-form" method="POST" action="/api/login">
-        <!-- Logo picture + username field have the same height -->
+
         <div class="input-container">
             <img src="../PNG-JPG/logo%20head.png" alt="School Logo">
             <input type="text" id="username" name="username" placeholder="Username" required>
         </div>
 
-        <!-- Logo picture + password field have the same height -->
         <div class="input-container">
             <img src="../PNG-JPG/logo%20lock.png" alt="School Logo">
             <input type="password" id="password" name="password" placeholder="Password" required>
         </div>
 
-        <!-- Login button -->
-        <button type="submit">Login</button>
+        <!-- Login button, depending on the type of user (admin/user) the corresponding interface will be opened -->
+        <button type="button" onclick="login()">Login</button>
+
     </form>
 </div>
 </body>

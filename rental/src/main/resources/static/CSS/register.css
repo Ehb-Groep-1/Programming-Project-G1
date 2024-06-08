@@ -1,0 +1,54 @@
+.screen-container {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 50%;
+   }
+
+#logo-top {
+    height: auto;
+    width: 200px;
+}
+
+.red-line {
+    width: 200px;
+    height: 2px;
+    background-color: #e40613;
+    margin: 20px auto;
+}
+
+.account-info {
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.account-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.account-info ul li {
+    text-align: left;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 50px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+
