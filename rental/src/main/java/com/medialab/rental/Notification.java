@@ -6,7 +6,7 @@ import org.hibernate.annotations.Fetch;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Notification")
+@Table(name = "notification")
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +18,24 @@ public class Notification {
     private LocalDateTime dateSent;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public LocalDateTime getDateSent() {
+        return dateSent;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     public Notification(String message, LocalDateTime dateSent) {
         this.message = message;
