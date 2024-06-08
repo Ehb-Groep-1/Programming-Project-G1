@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "Item")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int itemID;
     @OneToOne(fetch = FetchType.LAZY)
@@ -27,6 +27,9 @@ public class Item {
         return lastUserID.getUserID();
     }
 
+    public void setLastUserID(User lastUserID) {
+        this.lastUserID = lastUserID;
+    }
 
     public int getAvailableQuantity() {
         return availableQuantity;
