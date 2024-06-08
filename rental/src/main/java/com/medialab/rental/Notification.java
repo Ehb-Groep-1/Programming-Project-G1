@@ -1,7 +1,6 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
 
 import java.time.LocalDateTime;
 

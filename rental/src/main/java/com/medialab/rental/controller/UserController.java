@@ -19,18 +19,14 @@ import java.util.Map;
 @RequestMapping("/api")
 public class UserController {
     private final UserService userService;
-    private final AuthenticationProvider authenticationProvider;
-    private final UserDetailsService userDetailsService;
     private final UserNotificationService userNotificationService;
     private final SessionService sessionService;
     private final ItemRentalHistoryService itemRentalHistoryService;
 
     @Autowired
-    UserController(CustomUserDetailsService userDetailsService, AuthenticationProvider authenticationProvider, UserService userService,
-                   UserNotificationService userNotificationService, SessionService sessionService, ItemRentalHistoryService itemRentalHistoryService) {
+    UserController(UserService userService, UserNotificationService userNotificationService,
+                   SessionService sessionService, ItemRentalHistoryService itemRentalHistoryService) {
         this.userService = userService;
-        this.authenticationProvider = authenticationProvider;
-        this.userDetailsService = userDetailsService;
         this.userNotificationService = userNotificationService;
         this.sessionService = sessionService;
         this.itemRentalHistoryService = itemRentalHistoryService;
