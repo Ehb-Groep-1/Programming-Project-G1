@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged in</title>
+    <script src="/JAVASCRIPT/logout.js" type="text/javascript"></script>
+</head>
+<body>
+<a href="#" onclick="logout()">log out</a>
+<h2>authentication success</h2>
+username: <span id="username"></span>&nbsp;&nbsp;role: <span id="role"></span>&nbsp;&nbsp;id: <span id="userId"></span>
+<script type="module">
+    const response = await fetch('/api/userinfo');
+    const info = await response.json();
+    document.getElementById('username').innerText = info.username;
+    document.getElementById('role').innerText = info.role;
+    document.getElementById('userId').innerText = info.userId;
+</script>
+</body>
+</html>

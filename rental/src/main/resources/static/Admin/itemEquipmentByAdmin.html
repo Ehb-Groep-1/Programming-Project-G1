@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item/Equipment</title>
-    <link rel="stylesheet" href="../../CSS/adminCSS/addItem.css">
+    <title>Item/Equipment by Admin</title>
+    <link rel="stylesheet" href="../../CSS/adminCSS/adminEquipmentByAdmin.css">
 </head>
 <body>
 <section class="container">
     <header class="header">
-        <a href="../Admin/adminInterface.html" id="logo-link">
+        <a href="/adminInterface.html" id="logo-link">
             <img id="logo1" src="../../PNG-JPG/main-menu-dots.png" alt="Logo 1">
         </a>
         <img id="logo2" src="../../PNG-JPG/MediaLab%20Black.png" alt="Logo 2">
@@ -28,9 +28,12 @@
         <input type="text" class="description" placeholder="Description">
         <input type="text" class="price" placeholder="Price"><!-- I don't know yet if we are going to work with prices-->
         <input type="text" class="quantity-available" placeholder="Quantity Available">
-        <!-- When clicking on add the item gets added to the medialab -->
-        <!-- The add button becomes green if the item has been added to the medialab -->
-        <button type="submit" class="add">Add</button>
+        <!-- The buttons are static and not functional yet-->
+        <button type="submit" id="submit-changes">Submit Changes</button>
+        <a href="../User/rentalHistory.html" id="rental-history">Rental Users History</a>
+        <!-- The delete button becomes green if the item has been deleted,
+        the admin get then sent back to the mediaLabAdmin-->
+        <button type="submit" id="delete">Delete</button>
     </section>
 </section>
 </body>

@@ -45,7 +45,7 @@ h1 {
 
 .notifications {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin: 50px auto;
@@ -53,7 +53,7 @@ h1 {
     box-sizing: border-box;
 }
 
-.notification-box {
+.notifications ul {
     margin: 10px 0;
     padding: 40px;
     border: 2px solid black;

@@ -1,9 +1,7 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.support.ManagedArray;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -71,6 +69,39 @@ public class User {
         return role;
     }
 
+    public String getPassword() { return password; }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setBanned_date(LocalDate banned_date) {
+        this.banned_date = banned_date;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 //    protected void setBanStartDate(LocalDate banStartDate) {
 //        this.banStartDate = banStartDate;
 //    }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../CSS/logIn.css">
+    <script src="JAVASCRIPT/register.js"></script>
+</head>
+<body>
+<div class="login-container">
+    <!-- Logo found on the net, check if property rights allow its use -->
+    <img id="logo-header" src="../PNG-JPG/MediaLab%20Black.png" alt="MediaLab Logo">
+
+    <!-- Logo of school, maybe ask a better png to the school? -->
+    <img id="logo-school" src="../PNG-JPG/Logo%20EhB.png" alt="School Logo">
+
+    <form id="register-form">
+        <!-- Logo picture + username field have the same height -->
+        <div class="input-container">
+            <input type="text" id="username" placeholder="Username" required>
+            <p style="visibility: hidden; color: red" id="usernameAlreadyTaken">This username is already taken. Please choose another one.</p>
+        </div>
+
+        <!-- Logo picture + password field have the same height -->
+        <div class="input-container">
+            <input type="password" id="password" autocomplete="new-password" placeholder="Password" required>
+        </div>
+        <div class="input-container">
+            <input type="password" id="confirm_password"  placeholder="Repeat password" required>
+            <p style="visibility: hidden; color: red" id="passwordsDoNotMatch">both password fields must match.</p>
+        </div>
+        <div class="input-container">
+            <input type="email" id="email" placeholder="email" required>
+        </div>
+        <div class="input-container">
+            <input type="text" id="phonenumber" placeholder="phonenumber" required>
+        </div>
+        <div class="input-container">
+            <input type="text" id="address" placeholder="address" required>
+        </div>
+        <!-- Login button -->
+        <button id="registerBtn" type="submit">register</button>
+    </form>
+</div>
+</body>
+</html>
