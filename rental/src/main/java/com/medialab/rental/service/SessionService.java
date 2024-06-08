@@ -9,8 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class SessionService {
 
@@ -38,7 +36,6 @@ public class SessionService {
             session.setAttribute("userRole", user.getRole());
         }
 
-        UserInfo userInfo = new UserInfo(String.valueOf(session.getAttribute("userName")), String.valueOf(session.getAttribute("userRole")), (Integer) session.getAttribute("userId"));
-        return userInfo;
+        return new UserInfo(String.valueOf(session.getAttribute("userName")), String.valueOf(session.getAttribute("userRole")), (Integer) session.getAttribute("userId"));
     }
 }

@@ -1,7 +1,6 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name = "Item")
@@ -19,12 +18,6 @@ public class Item {
     private String nameItem;
     @Column(name = "description")
     private String descriptionItem;
-
-    public Item(String name, String description, int availableQuantity) {
-        this.nameItem = name;
-        this.descriptionItem = description;
-        this.availableQuantity = availableQuantity;
-    }
 
     public int getItemID() {
         return this.itemID;
