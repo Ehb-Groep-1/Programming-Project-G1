@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -81,7 +82,12 @@ public class UserService {
 
     @Transactional
     public Collection<User> getBannedCustomers(){
-        return userRepository.findAllByBanned_date();
+        return userRepository.findAllBanned();
+    }
+
+    @Transactional
+    public Collection<User> getUnbannedCustomers(){
+        return userRepository.findAllUnbanned();
     }
 
     @Transactional
@@ -92,4 +98,11 @@ public class UserService {
         });
     }
 
+    @Transactional
+    public void banUser(int userId){
+        userRepository.findById(userId).ifPresent(user -> {
+            user.setBanned_date(LocalDate.now().plusYears(100));
+            userRepository.save(user);
+        });
+    }
 }
