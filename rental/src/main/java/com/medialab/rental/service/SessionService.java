@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@SessionAttributes("rentedItems")
 public class SessionService {
 
     private final ObjectFactory<HttpSession> sessionFactory;
@@ -48,9 +47,6 @@ public class SessionService {
         }
 
         return new UserInfo(String.valueOf(session.getAttribute("userName")), String.valueOf(session.getAttribute("userRole")), (Integer) session.getAttribute("userId"));
-    }
-
-    public record ItemInfo(int id, String name, int availableAmount) {
     }
 
 }

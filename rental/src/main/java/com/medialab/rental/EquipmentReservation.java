@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "EquipmentReservation")
 public class EquipmentReservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @OneToOne(fetch = FetchType.LAZY)
@@ -57,7 +57,7 @@ public class EquipmentReservation {
     }
 
     public void setEndDate(LocalDate date) {
-        this.startDate = date;
+        this.endDate = date;
     }
 
     public LocalDate getEndDate() {

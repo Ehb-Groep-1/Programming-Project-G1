@@ -19,6 +19,13 @@ public class Item {
     @Column(name = "description")
     private String descriptionItem;
 
+    public Item(){}
+    public Item(String nameItem, String descriptionItem, int availableQuantity) {
+        this.nameItem = nameItem;
+        this.descriptionItem = descriptionItem;
+        this.availableQuantity = availableQuantity;
+    }
+
     public int getItemID() {
         return this.itemID;
     }
