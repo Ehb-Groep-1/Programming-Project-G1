@@ -2,12 +2,14 @@ package com.medialab.rental.service;
 
 import com.medialab.rental.User;
 import com.medialab.rental.UserRole;
-import com.medialab.rental.repository.CurrentItemUserRepository;
 import com.medialab.rental.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -34,6 +36,11 @@ public class UserService {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    @Transactional()
+    public Optional<User> getCustomerById(int userId){
+        return userRepository.findById(userId);
     }
 
     @Transactional
@@ -70,6 +77,19 @@ public class UserService {
         User user = new User(username,passwordEncoder.encode(password),email,phoneNumber,address, UserRole.normal);
         userRepository.save(user);
         return user;
+    }
+
+    @Transactional
+    public Collection<User> getBannedCustomers(){
+        return userRepository.findAllByBanned_date();
+    }
+
+    @Transactional
+    public void unbanUser(int userId){
+        userRepository.findById(userId).ifPresent(user -> {
+            user.setBanned_date(null);
+            userRepository.save(user);
+        });
     }
 
 }

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('itemsContainer');
     console.log(container);
     const fetchItems = async () => {
-        const response = await fetch('http://localhost:8080/api/iteminfo')
+        const response = await fetch('http://localhost:8080/item/info')
         .then((data) => {
             return data.json();
         }).catch((err) => console.error(err));

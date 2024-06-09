@@ -1,22 +1,25 @@
 package com.medialab.rental.service;
 
 import com.medialab.rental.Item;
-import com.medialab.rental.controller.ItemController;
+import com.medialab.rental.User;
 import com.medialab.rental.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class ItemService {
+
     private final ItemRepository itemRepository;
+    private final UserService userService;
 
     @Autowired
-    ItemService(ItemRepository itemRepository) {
+    ItemService(ItemRepository itemRepository, UserService userService) {
         this.itemRepository = itemRepository;
+        this.userService = userService;
     }
 
     public Item getItemByName(String itemName) {
@@ -34,8 +37,19 @@ public class ItemService {
 
     @Transactional
     public List<Item> getAllItems() {
-        List<Item> allItems = itemRepository.findAll();
-        System.out.println(allItems);
-        return allItems;
+        return itemRepository.findAll();
+    }
+
+    public Item createItem(String name, String description, int quantity, int lastUserId) {
+        Item item = new Item();
+        Optional<User> lastUser = userService.getCustomerById(lastUserId);
+
+        item.setNameItem(name);
+        item.setDescriptionItem(description);
+        item.setAvailableQuantity(quantity);
+        item.setLastUserID(lastUser.orElse(null));
+
+        itemRepository.save(item);
+        return item;
     }
 }

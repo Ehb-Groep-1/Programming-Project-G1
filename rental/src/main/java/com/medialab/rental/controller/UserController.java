@@ -5,10 +5,9 @@ import com.medialab.rental.User;
 import com.medialab.rental.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -94,5 +93,22 @@ public class UserController {
                 itemRentalHistory.getRental_date(),
                 itemRentalHistory.getReturn_date(),
                 itemRentalHistory.getRental_duration());
+    }
+
+    public record BannedUser(String username, int userId, LocalDate bannedUntil){}
+    @GetMapping(value = "/bannedusers")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Collection<BannedUser>> getBannedUsers(){
+        return ResponseEntity.ok(userService.getBannedCustomers().stream()
+                .map(u -> new BannedUser(u.getUsername(), u.getUserID(), u.getBanned_date()))
+                .toList());
+    }
+
+    @PostMapping(value = "/unban")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Void> unbanUser(@RequestBody BannedUser bannedUser){
+        userService.unbanUser(bannedUser.userId);
+
+        return ResponseEntity.noContent().build();
     }
 }
