@@ -1,6 +1,8 @@
 (() => {
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('itemsContainer');
+    const popup = document.querySelector('.popup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
     console.log(container);
     const fetchItems = async () => {
         const response = await fetch('http://localhost:8080/item/info')
@@ -25,9 +27,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = await fetchItems();
         items.map((item) => {
             console.log(item);
-            container.innerHTML += articleTemplate(item);
+            const article = document.createElement('div');
+            article.innerHTML = articleTemplate(item);
+            article.addEventListener('click',() => createPopup(item));
+            container.appendChild(article);
         })
     }
+
+    const popupTemplate = (item) => {
+        return `<span id="closePopupBtn" class="close-btn">&times;</span>
+                <section class="boxes">
+                    <figure class="item-equipment">
+                        <div class="item-equipment-image"><img src="../../PNG-JPG/Item-Equipment.png" alt="Item"></div>
+                    </figure>
+                    <div class="item-equipment-name">Name: ${item.name}</div>
+                    <div class="description">Description: ${item.description}</div>
+                    <div class="quantity-available">Available quantity: ${item.amountAvailable}</div>
+                    <button class="rent">Rent</button>
+                </section>`
+    }
+
+    const createPopup = (item) => {
+        const popupContent = document.querySelector('.popup-content');
+        popupContent.innerHTML = popupTemplate(item);
+        popup.style.display = 'block';
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        closePopupBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+        })
+    }
+
     renderArticles();
+    window.addEventListener('click', (e) => {
+        if(e.target === popup) {
+            popup.style.display = 'none';
+        }
+    })
+    closePopupBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    })
 })
 })();

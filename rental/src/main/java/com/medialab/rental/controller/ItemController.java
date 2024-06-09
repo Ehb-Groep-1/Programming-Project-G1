@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Collection;
 import java.util.Optional;
 
-@RequestMapping(value="/item")
+@RequestMapping(value = "/item")
 @RestController
 public class ItemController {
 
@@ -26,17 +26,21 @@ public class ItemController {
     }
 
 
-    public record ItemCreation(String name, String description, int quantity, Optional<Integer> lastUserId){}
+    public record ItemCreation(String name, String description, int quantity, Optional<Integer> lastUserId) {
+    }
+
     @PostMapping("/")
     public ResponseEntity<Void> addItem(@RequestBody ItemCreation itemCreation) {
         itemService.createItem(itemCreation.name, itemCreation.description, itemCreation.quantity, itemCreation.lastUserId.orElse(-1));
         return ResponseEntity.noContent().build();
     }
 
-    public record ItemInfo(int id, String name, String description) {}
+    public record ItemInfo(int id, String name, String description, int amountAvailable) {
+    }
+
     @GetMapping("/info")
     public ResponseEntity<Collection<ItemInfo>> itemInfo() {
         List<Item> items = itemService.getAllItems();
-        return ResponseEntity.ok(items.stream().map(item -> new ItemInfo(item.getItemID(), item.getNameItem(), item.getDescriptionItem())).toList());
+        return ResponseEntity.ok(items.stream().map(item -> new ItemInfo(item.getItemID(), item.getNameItem(), item.getDescriptionItem(), item.getAvailableQuantity())).toList());
     }
 }
