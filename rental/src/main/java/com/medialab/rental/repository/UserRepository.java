@@ -16,6 +16,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByPhoneNumber(String phoneNumber); // misschien fout want in db is het phone_number
     @Query(value = "SELECT user FROM User user WHERE user.banned_date > local date")
-    Collection<User> findAllByBanned_date();
+    Collection<User> findAllBanned();
+
+    @Query(value = "SELECT user FROM User user WHERE user.banned_date IS NULL OR user.banned_date < local date ")
+    Collection<User> findAllUnbanned();
+
 
 }

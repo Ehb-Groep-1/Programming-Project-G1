@@ -111,4 +111,21 @@ public class UserController {
 
         return ResponseEntity.noContent().build();
     }
+
+    public record UnbannedUser(String username, int userId){}
+    @GetMapping(value = "/unbannedusers")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Collection<UnbannedUser>> getUnbannedUsers(){
+        return ResponseEntity.ok(userService.getUnbannedCustomers().stream()
+                .map(u -> new UnbannedUser(u.getUsername(), u.getUserID()))
+                .toList());
+    }
+
+    @PostMapping(value = "/ban")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Void> banUser(@RequestBody BannedUser bannedUser){
+        userService.banUser(bannedUser.userId);
+
+        return ResponseEntity.noContent().build();
+    }
 }
