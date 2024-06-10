@@ -27,16 +27,4 @@ public class EquipmentReservationService {
         this.itemRepository = itemRepository;
     }
 
-    @Transactional
-    public EquipmentReservation createReservation(User user, Item item, LocalDate startDate, LocalDate endDate) {
-        EquipmentReservation equipmentReservation = new EquipmentReservation();
-        equipmentReservation.setUser(user);
-        equipmentReservation.setItem(item);
-        equipmentReservation.setStartDate(startDate);
-        equipmentReservation.setEndDate(endDate);
-        equipmentReservationRepository.save(equipmentReservation);
-        itemRepository.decrementQuantity(item.getItemID());
-        return equipmentReservation;
-    }
-
 }

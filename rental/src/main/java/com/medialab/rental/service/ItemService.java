@@ -35,6 +35,19 @@ public class ItemService {
         return null;
     }
 
+    public Item getItemById(int id) {
+        try {
+            Item myItem = itemRepository.findById(id);
+            if (myItem == null)
+                throw new RuntimeException("Item with the following id was not found: " + id);
+            System.out.println(myItem);
+            return myItem;
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
     @Transactional
     public List<Item> getAllItemsAvailableItems() {
         return itemRepository.findAllAvailableItems();
