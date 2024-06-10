@@ -57,7 +57,9 @@ public class EquipmentReservationController {
         LocalDate first = LocalDate.parse(values.dates.first);
         LocalDate second = LocalDate.parse(values.dates.second);
         List<Item> items = values.itemsToRent.stream().map(itemInfo -> itemService.getItemByName(itemInfo.name)).collect(Collectors.toList());
-        items.forEach(item -> equipmentReservationService.createReservation(user, item, first, second));
+        for(Item item : items) {
+            equipmentReservationService.createReservation(user, item, first, second);
+        }
         return ResponseEntity.ok().build();
     }
 }
