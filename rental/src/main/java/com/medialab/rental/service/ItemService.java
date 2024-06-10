@@ -36,8 +36,8 @@ public class ItemService {
     }
 
     @Transactional
-    public List<Item> getAllItems() {
-        return itemRepository.findAll();
+    public List<Item> getAllItemsAvailableItems() {
+        return itemRepository.findAllAvailableItems();
     }
 
     public Item createItem(String name, String description, int quantity, int lastUserId) {

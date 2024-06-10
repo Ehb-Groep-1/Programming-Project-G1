@@ -43,7 +43,7 @@ public class ItemController {
 
     @GetMapping("/info")
     public ResponseEntity<Collection<ItemInfo>> itemInfo() {
-        List<Item> items = itemService.getAllItems();
+        List<Item> items = itemService.getAllItemsAvailableItems();
         return ResponseEntity.ok(items.stream().map(item -> new ItemInfo(item.getItemID(), item.getNameItem(), item.getDescriptionItem(), item.getAvailableQuantity())).toList());
     }
 

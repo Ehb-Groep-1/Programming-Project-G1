@@ -27,7 +27,6 @@
     const renderArticles = async () => {
       const items = await fetchItems();
       items.map((item) => {
-        console.log(item);
         const article = document.createElement("div");
         article.innerHTML = articleTemplate(item);
         article.addEventListener("click", () => createPopup(item));
