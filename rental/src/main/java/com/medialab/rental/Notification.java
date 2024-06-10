@@ -2,13 +2,14 @@ package com.medialab.rental;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notification")
+@Table(name = "Notification")
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "message")
@@ -47,6 +48,14 @@ public class Notification {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setDateSent(LocalDateTime dateSent) {
+        this.dateSent = dateSent;
     }
 
 }

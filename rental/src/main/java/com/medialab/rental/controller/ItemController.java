@@ -57,10 +57,7 @@ public class ItemController {
 
     @PostMapping("/rent")
     public ResponseEntity<Void> rentItem(@RequestBody ItemInfo itemInfo, HttpSession session) {
-        List<ItemInfo> rentedItems = (List<ItemInfo>) session.getAttribute("rentedItems");
-        if (rentedItems == null) {
-            rentedItems = new ArrayList<>();
-        }
+        List<ItemInfo> rentedItems = new ArrayList<>();
         rentedItems.add(itemInfo);
         session.setAttribute("rentedItems", rentedItems);
         return ResponseEntity.ok().build();

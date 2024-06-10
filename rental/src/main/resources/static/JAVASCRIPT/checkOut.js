@@ -61,8 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         amountAvailable: item.amountAvailable,
       })),
     };
-    console.log(values);
-    const response = await fetch("http://localhost:8080/reservation/values", {
+    const response = await fetch("http://localhost:8080/history/rent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,8 +72,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!data.ok) throw new Error("Couldn't rent the items!");
         return data;
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        alert(err);
+      });
     console.log(response);
+    postNotifications();
+  };
+
+  const postNotifications = async () => {
+    const response = await fetch("http://localhost:8080/api/notification", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => {
+        if (!data.ok) throw new Error("Couldn't get notifications!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
+    window.location.href = "/User/notificationsUser.html";
   };
 
   renderItems();
