@@ -9,7 +9,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int itemID;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "last_user_id")
     private User lastUserID;
     @Column(name = "quantity_available")
@@ -62,14 +62,4 @@ public class Item {
         this.descriptionItem = descriptionItem;
     }
 
-    @Override
-    public String toString() {
-        return "Item => {\n" +
-                "ID:\t" + getItemID() +
-                "Name:\t" + getNameItem() +
-                "Description:\t" + getDescriptionItem() +
-                "ID of Last User:\t" + getLastUserID() +
-                "Available Quantity:\t" + getAvailableQuantity() +
-                "\n}";
-    }
 }
