@@ -1,6 +1,8 @@
 package com.medialab.rental.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,8 +23,9 @@ import java.security.SecureRandom;
 
 import static java.util.Arrays.asList;
 
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity()
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 @Configuration
 public class ConfiguratieApplicatie implements WebMvcConfigurer {
     @Autowired
@@ -49,7 +52,7 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
                             .usernameParameter("username")
                             .failureForwardUrl("/unknown_user.html")
                             .failureUrl("/unknown_user.html")
-                            .defaultSuccessUrl("/success.html")
+                            .defaultSuccessUrl("/User/userInterface.html")
                             .permitAll()
                         )
                 .logout((logout) ->
