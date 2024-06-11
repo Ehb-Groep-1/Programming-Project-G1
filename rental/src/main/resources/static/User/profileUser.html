@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profiel User</title>
-    <link rel="stylesheet" href="../../CSS/profileUser.css">
+    <link rel="stylesheet" href="../CSS/profileUser.css">
     <script src="/JAVASCRIPT/profile_user.js" type="module"></script>
 </head>
 <body>
 <div class="screen-container">
-    <img id="logo-top" src="../../PNG-JPG/EhB%20logo%20long.jpeg" alt="Logo">
+    <img id="logo-top" src="../PNG-JPG/EhB%20logo%20long.jpeg" alt="Logo">
     <div class="red-line"></div>
-    <a href="userInterface.html"><img src="../../PNG-JPG/main-menu-dots.png" alt="Main menu dots" id="main-menu-dots"></a>
-    <img id="user-picture" src="../../PNG-JPG/logo%20head.png" alt="User Picture">
+    <a href="userInterface.html"><img src="../PNG-JPG/main-menu-dots.png" alt="Main menu dots" id="main-menu-dots"></a>
+    <img id="user-picture" src="../PNG-JPG/logo%20head.png" alt="User Picture">
 
     <!-- Fields with account information that can be changed when hitting the submit changes button -->
     <H2 id="dataChanged" style="display: none; color: green">Profile has been updated.</H2>
     <div class="account-info">
         <ul>
-            <li><label>Username:</label> <span id="username"></span></li>
-            <li><label>Password:</label> <input id="password" type="password" value="" onfocus="clearInput(this)"></li>
+            <li><label>Username:</label> <input id="username" type="username" value="JohnDoe" onfocus="clearInput(this)"></li>
+            <li><label>Password:</label> <input id="password" type="password" value="*********" onfocus="clearInput(this)"></li>
             <li style="display: none; color: red" id="passwordDifferent">Both password fields need to match.</li>
-            <li><label>Confirm Password:</label> <input id="confirmPassword" type="password" value="" onfocus="clearInput(this)"></li>
+            <li><label>Confirm Password:</label> <input id="confirmPassword" type="password" value="*********" onfocus="clearInput(this)"></li>
             <li style="display: none; color: red" id="confirmPasswordDifferent">Both password fields need to match.</li>
             <li><label>Email:</label> <input id="email" type="email" value="johndoe@example.com" onfocus="clearInput(this)"></li>
             <li><label>Phone Number:</label> <input id="phonenumber" type="tel" value="+1234567890" onfocus="clearInput(this)"></li>

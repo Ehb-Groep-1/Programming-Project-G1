@@ -1,9 +1,9 @@
-.screen-container {
+.login-container {
     text-align: center;
     margin: 0 auto;
     padding-top: 20px;
     width: 50%;
-   }
+}
 
 #logo-top {
     height: auto;
@@ -17,24 +17,20 @@
     margin: 20px auto;
 }
 
-.account-info {
-    width: 200px;
-    margin: 0 auto;
+.input-container {
+    margin-bottom: 1px;
+    height: 50px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: calc(100% - 22px);
     padding: 10px;
-    padding-bottom: 0;
-}
-
-.account-info ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.account-info ul li {
-    text-align: left;
-    margin-bottom: 10px;
-    border: 2px solid black;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 8px;
 }
 
 button {
@@ -50,5 +46,3 @@ button {
 button:hover {
     background-color: #333;
 }
-
-
