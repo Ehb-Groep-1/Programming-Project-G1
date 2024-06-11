@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../CSS/logIn.css">
+    <link rel="stylesheet" href="CSS/register.css">
     <script src="JAVASCRIPT/register.js"></script>
 </head>
 <body>
 <div class="login-container">
-    <!-- Logo found on the net, check if property rights allow its use -->
-    <img id="logo-header" src="../PNG-JPG/MediaLab%20Black.png" alt="MediaLab Logo">
-
-    <!-- Logo of school, maybe ask a better png to the school? -->
-    <img id="logo-school" src="../PNG-JPG/Logo%20EhB.png" alt="School Logo">
+    <img id="logo-top" src="PNG-JPG/EhB%20logo%20long.jpeg" alt="Logo">
+    <div class="red-line"></div>
 
     <form id="register-form">
-        <!-- Logo picture + username field have the same height -->
         <div class="input-container">
             <input type="text" id="username" placeholder="Username" required>
             <p style="visibility: hidden; color: red" id="usernameAlreadyTaken">This username is already taken. Please choose another one.</p>
         </div>
 
-        <!-- Logo picture + password field have the same height -->
         <div class="input-container">
             <input type="password" id="password" autocomplete="new-password" placeholder="Password" required>
         </div>
