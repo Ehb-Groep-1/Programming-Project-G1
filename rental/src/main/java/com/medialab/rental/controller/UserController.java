@@ -1,45 +1,34 @@
 package com.medialab.rental.controller;
 
-import com.medialab.rental.Notification;
+import com.medialab.rental.ItemRentalHistory;
 import com.medialab.rental.User;
-import com.medialab.rental.service.CustomUserDetailsService;
-import com.medialab.rental.service.SessionService;
-import com.medialab.rental.service.UserNotificationService;
-import com.medialab.rental.service.UserService;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.ObjectFactory;
+import com.medialab.rental.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
 public class UserController {
     private final UserService userService;
-    private final AuthenticationProvider authenticationProvider;
-    private final UserDetailsService userDetailsService;
     private final UserNotificationService userNotificationService;
     private final SessionService sessionService;
+    private final ItemRentalHistoryService itemRentalHistoryService;
 
     @Autowired
-    UserController(CustomUserDetailsService userDetailsService, AuthenticationProvider authenticationProvider, UserService userService,
-                   UserNotificationService userNotificationService, SessionService sessionService) {
+    UserController(UserService userService, UserNotificationService userNotificationService,
+                   SessionService sessionService, ItemRentalHistoryService itemRentalHistoryService) {
         this.userService = userService;
-        this.authenticationProvider = authenticationProvider;
-        this.userDetailsService = userDetailsService;
         this.userNotificationService = userNotificationService;
         this.sessionService = sessionService;
-
+        this.itemRentalHistoryService = itemRentalHistoryService;
     }
 
     @GetMapping("/userinfo")
@@ -88,5 +77,55 @@ public class UserController {
                 .stream().map(n -> new UserNotification(n.getMessage(), n.getDateSent().toString())).toList();
 
         return ResponseEntity.ok(notifications);
+    }
+
+    public record UserRentalHistory(String itemName, String itemDescription, LocalDate rentalDate, LocalDate returnDate, int rentalDuration){}
+    @GetMapping(value = "/rentalhistory")
+    public ResponseEntity<Collection<UserRentalHistory>> getRentalHistory(){
+        Collection<UserRentalHistory> rentalList = itemRentalHistoryService.getAllForUser(sessionService.getUserInfo().userId())
+                .stream().map(this::convert).toList();
+
+        return ResponseEntity.ok(rentalList);
+    }
+    private UserRentalHistory convert(ItemRentalHistory itemRentalHistory){
+        return new UserRentalHistory(itemRentalHistory.getItem().getNameItem(),
+                itemRentalHistory.getItem().getDescriptionItem(),
+                itemRentalHistory.getRental_date(),
+                itemRentalHistory.getReturn_date(),
+                itemRentalHistory.getRental_duration());
+    }
+
+    public record BannedUser(String username, int userId, LocalDate bannedUntil){}
+    @GetMapping(value = "/bannedusers")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Collection<BannedUser>> getBannedUsers(){
+        return ResponseEntity.ok(userService.getBannedCustomers().stream()
+                .map(u -> new BannedUser(u.getUsername(), u.getUserID(), u.getBanned_date()))
+                .toList());
+    }
+
+    @PostMapping(value = "/unban")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Void> unbanUser(@RequestBody BannedUser bannedUser){
+        userService.unbanUser(bannedUser.userId);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    public record UnbannedUser(String username, int userId){}
+    @GetMapping(value = "/unbannedusers")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Collection<UnbannedUser>> getUnbannedUsers(){
+        return ResponseEntity.ok(userService.getUnbannedCustomers().stream()
+                .map(u -> new UnbannedUser(u.getUsername(), u.getUserID()))
+                .toList());
+    }
+
+    @PostMapping(value = "/ban")
+    @PreAuthorize(value = "hasAuthority('admin')")
+    public ResponseEntity<Void> banUser(@RequestBody BannedUser bannedUser){
+        userService.banUser(bannedUser.userId);
+
+        return ResponseEntity.noContent().build();
     }
 }

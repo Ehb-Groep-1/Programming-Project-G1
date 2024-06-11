@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +22,7 @@ import java.security.SecureRandom;
 import static java.util.Arrays.asList;
 
 @EnableWebSecurity(debug = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
 public class ConfiguratieApplicatie implements WebMvcConfigurer {
     @Autowired
@@ -35,6 +37,8 @@ public class ConfiguratieApplicatie implements WebMvcConfigurer {
                                 .requestMatchers(HttpMethod.POST, "/api/login", "/api/register","/login.html","/unknown_user.html").permitAll()
                 .requestMatchers(HttpMethod.GET,"/","/*","/register.html","/api/userinfo",
                         "/CSS/**", "/JAVASCRIPT/**","/PNG-JPG/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/Admin/*","/item").hasAuthority("admin")
+                .requestMatchers(HttpMethod.GET, "/Admin/*").hasAuthority("admin")
                 .anyRequest().authenticated()
                 )
                 .formLogin((form) ->
