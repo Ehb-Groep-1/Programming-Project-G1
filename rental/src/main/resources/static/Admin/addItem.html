@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item/Equipment</title>
+    <link rel="stylesheet" href="../CSS/adminCSS/addItem.css">
+</head>
+<body>
+<section class="container">
+    <header class="header">
+        <a href="../Admin/adminInterface.html" id="logo-link">
+            <img id="logo1" src="../PNG-JPG/main-menu-dots.png" alt="Logo 1">
+        </a>
+        <img id="logo2" src="../PNG-JPG/MediaLab%20Black.png" alt="Logo 2">
+    </header>
+    <hr class="red-line">
+    <section class="search-container">
+        <label for="searchInput"></label><input type="text" id="searchInput" placeholder="Item/Equipment">
+        <button type="button" id="searchButton">Search</button>
+    </section>
+    <section class="boxes">
+        <h2 style="color: green; visibility: hidden" id="equipmentAddedNotification">your equipment has been added.</h2>
+        <figure class="item-equipment">
+            <!-- A function has still to be written to use the dummy image as a placeholder -->
+            <div class="item-equipment-image"><img src="../PNG-JPG/Item-Equipment.png" alt="Item"></div>
+        </figure>
+            <input type="text" class="item-equipment-name" id="itemName" placeholder="Item/Equipment Name">
+            <input type="text" class="description" id="description" placeholder="Description">
+            <input type="text" class="price" placeholder="Price"><!-- I don't know yet if we are going to work with prices-->
+            <input type="text" class="quantity-available" id="quantity" placeholder="Quantity Available">
+            <!-- When clicking on add the item gets added to the medialab -->
+            <!-- The add button becomes green if the item has been added to the medialab -->
+            <button class="add" id="addEquipmentBtn">Add</button>
+    </section>
+</section>
+<script src="/JAVASCRIPT/admin_additem.js"></script>
+<script type="module" src="/JAVASCRIPT/addheader.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Admin</title>
+    <link rel="stylesheet" href="../CSS/profileUser.css">
+</head>
+<body>
+<div class="screen-container">
+    <img id="logo-top" src="../PNG-JPG/EhB%20logo%20long.jpeg" alt="Logo">
+    <div class="red-line"></div>
+    <a href="../Admin/adminInterface.html"><img src="../PNG-JPG/main-menu-dots.png" alt="Main menu dots" id="main-menu-dots"></a>
+    <img id="user-picture" src="../PNG-JPG/logo%20head.png" alt="User Picture">
+
+    <!-- Fields with account information that can be changed when hitting the submit changes button, haven't figured out yet how already created values will be shown, maybe function that links to database?-->
+    <div class="account-info">
+        <ul>
+            <li><span>Username:</span> <input type="text" value="JohnDoe" onfocus="clearInput(this)"></li>
+            <li><span>Password:</span> <input type="password" value="*********" onfocus="clearInput(this)"></li>
+            <li><span>Email:</span> <input type="email" value="johndoe@example.com" onfocus="clearInput(this)"></li>
+            <li><span>Phone Number:</span> <input type="tel" value="+1234567890" onfocus="clearInput(this)"></li>
+            <li><span>Address:</span> <input type="text" value="123 Main St, City, Country" onfocus="clearInput(this)"></li>
+        </ul>
+    </div>
+    <button type="submit">Submit Changes</button>
+</div>
+<script>
+    function clearInput(input) {
+        input.value = '';
+    }
+</script>
+
+<script type="module" src="/JAVASCRIPT/addheader.js"></script>
+</body>
+</html>

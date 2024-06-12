@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item or Equipment</title>
+    <link rel="stylesheet" href="../CSS/itemEquipment.css">
+</head>
+<body>
+<section class="container">
+    <header class="header">
+        <a href="userInterface.html" id="logo-link">
+            <img id="logo1" src="../PNG-JPG/main-menu-dots.png" alt="Logo 1">
+        </a>
+        <img id="logo2" src="../PNG-JPG/MediaLab%20Black.png" alt="Logo 2">
+    </header>
+    <hr class="red-line">
+    <section class="search-container">
+        <input type="text" id="searchInput" placeholder="Item/Equipment">
+        <button type="button" id="searchButton">Search</button>
+    </section>
+    <section class="boxes">
+        <figure class="item-equipment">
+            <div class="item-equipment-image"><img src="../PNG-JPG/Item-Equipment.png" alt="Item"></div>
+        </figure>
+        <div class="item-equipment-name">Item/Equipment Name</div>
+        <div class="description">Description</div>
+        <div class="price">Price</div> <!-- I don't know yet if we are going to work with prices-->
+        <div class="quantity-available">Quantity Available</div>
+        <!-- When clicking on rent the item gets added to the basket -->
+        <!-- The rent button becomes green if the item has already been added to the basket -->
+        <button class="rent">Rent</button>
+        <!-- When clicking on reserve the item gets reserved for when it becomes available, but it doesn't get added to the basket (how does teh user knows what he has reserved)-->
+        <!-- The reserve button becomes green if the item has already been reserved -->
+        <button class="reserve">Reserve</button>
+    </section>
+</section>
+<script type="module" src="/JAVASCRIPT/addheader.js"></script>
+</body>
+</html>

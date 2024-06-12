@@ -1,15 +1,15 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Notification")
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "message")
@@ -18,8 +18,24 @@ public class Notification {
     private LocalDateTime dateSent;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public LocalDateTime getDateSent() {
+        return dateSent;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     public Notification(String message, LocalDateTime dateSent) {
         this.message = message;
@@ -32,6 +48,14 @@ public class Notification {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setDateSent(LocalDateTime dateSent) {
+        this.dateSent = dateSent;
     }
 
 }

@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: red;
+}
+
+
+/*
+code from this point gotten and adapted from https://stackoverflow.com/questions/72315287/css-countdown-circled-animation
+ */
+
+#countdown {
+    height: 160px;
+    width: 160px;
+    margin: 10px auto;
+}
+
+svg circle#c2 {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke: #198051;
+    animation: countdown 5s linear infinite forwards;
+}
+
+svg circle#c3 {
+    stroke: #198051;
+    opacity: .3;
+}
+
+circle#c1 {
+    fill: lime;
+    animation: rotate 5s linear infinite forwards;
+}
+
+svg text {
+    font-family: sans-serif;
+    fill: black;
+    font-weight: bold;
+    dominant-baseline: middle;
+    text-anchor: middle;
+    font-size: 12px;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+    to {
+        stroke-dashoffset: 113px;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}

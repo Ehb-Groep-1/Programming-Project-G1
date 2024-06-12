@@ -1,0 +1,49 @@
+.login-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#logo-header {
+    height: 80px;
+    width: auto;
+}
+
+#logo-school {
+    height: auto;
+    width: 200px;
+}
+
+p {
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #e40613;
+    border: 2px solid #e40613;
+    border-radius: 15px;
+    padding: 10px 30px;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    margin-top: 40px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #333;
+}

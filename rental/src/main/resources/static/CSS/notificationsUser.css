@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 0 0;
+}
+
+#main-menu-dots {
+    width: auto;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#logo2 {
+    width: auto;
+    height: 50px;
+}
+
+.red-line, .black-line {
+    width: 30%;
+    height: 2px;
+    margin: 0 auto;
+}
+
+.red-line {
+    background-color: red;
+}
+
+.black-line {
+    background-color: black;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+
+.notifications ul {
+    margin: 10px 0;
+    padding: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
