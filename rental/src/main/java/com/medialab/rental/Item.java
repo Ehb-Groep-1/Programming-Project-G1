@@ -1,16 +1,15 @@
 package com.medialab.rental;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name = "Item")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int itemID;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "last_user_id")
     private User lastUserID;
     @Column(name = "quantity_available")
@@ -20,9 +19,10 @@ public class Item {
     @Column(name = "description")
     private String descriptionItem;
 
-    public Item(String name, String description, int availableQuantity) {
-        this.nameItem = name;
-        this.descriptionItem = description;
+    public Item(){}
+    public Item(String nameItem, String descriptionItem, int availableQuantity) {
+        this.nameItem = nameItem;
+        this.descriptionItem = descriptionItem;
         this.availableQuantity = availableQuantity;
     }
 
@@ -34,6 +34,9 @@ public class Item {
         return lastUserID.getUserID();
     }
 
+    public void setLastUserID(User lastUserID) {
+        this.lastUserID = lastUserID;
+    }
 
     public int getAvailableQuantity() {
         return availableQuantity;
@@ -59,14 +62,4 @@ public class Item {
         this.descriptionItem = descriptionItem;
     }
 
-    @Override
-    public String toString() {
-        return "Item => {\n" +
-                "ID:\t" + getItemID() +
-                "Name:\t" + getNameItem() +
-                "Description:\t" + getDescriptionItem() +
-                "ID of Last User:\t" + getLastUserID() +
-                "Available Quantity:\t" + getAvailableQuantity() +
-                "\n}";
-    }
 }

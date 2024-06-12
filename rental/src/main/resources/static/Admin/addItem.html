@@ -20,18 +20,21 @@
         <button type="button" id="searchButton">Search</button>
     </section>
     <section class="boxes">
+        <h2 style="color: green; visibility: hidden" id="equipmentAddedNotification">your equipment has been added.</h2>
         <figure class="item-equipment">
             <!-- A function has still to be written to use the dummy image as a placeholder -->
             <div class="item-equipment-image"><img src="../PNG-JPG/Item-Equipment.png" alt="Item"></div>
         </figure>
-        <input type="text" class="item-equipment-name" placeholder="Item/Equipment Name">
-        <input type="text" class="description" placeholder="Description">
-        <input type="text" class="price" placeholder="Price"><!-- I don't know yet if we are going to work with prices-->
-        <input type="text" class="quantity-available" placeholder="Quantity Available">
-        <!-- When clicking on add the item gets added to the medialab -->
-        <!-- The add button becomes green if the item has been added to the medialab -->
-        <button type="submit" class="add">Add</button>
+            <input type="text" class="item-equipment-name" id="itemName" placeholder="Item/Equipment Name">
+            <input type="text" class="description" id="description" placeholder="Description">
+            <input type="text" class="price" placeholder="Price"><!-- I don't know yet if we are going to work with prices-->
+            <input type="text" class="quantity-available" id="quantity" placeholder="Quantity Available">
+            <!-- When clicking on add the item gets added to the medialab -->
+            <!-- The add button becomes green if the item has been added to the medialab -->
+            <button class="add" id="addEquipmentBtn">Add</button>
     </section>
 </section>
+<script src="/JAVASCRIPT/admin_additem.js"></script>
+<script type="module" src="/JAVASCRIPT/addheader.js"></script>
 </body>
 </html>

@@ -18,39 +18,13 @@
 <div class="red-line"></div>
 <h1>Rental History</h1>
 <div class="black-line"></div>
-<div class="boxes">
-    <div class="static-box">Item/Equipment</div>
-    <div class="static-box">Description</div>
-    <div class="static-box">Rental Data</div>
-
-    <!-- The visible item/equipment is just an example, there is still a conflict on how to link the data to the row values -->
-    <div class="dynamic-box"><img src="../PNG-JPG/Item-Equipment.png"></div>
-    <div class="dynamic-box">...</div>
-    <div class="dynamic-box">Take out:<br>Return In:<br>Duration:</div>
-
+<div class="boxes" id="rentalHistoryHolder">
 </div>
-<!-- The rental count has to become a function that counts the items being rented -->
-<div class="rental-count" id="rentalCount">Rental Count: 1</div>
+<!-- The rental count has to become a function that count the items being rented -->
+<div class="rental-count" id="rentalCount">Rental Count: <span id="rentalCounter"></span></div>
 
-<script>
-    function countRows() {
-        var dynamicBoxes = document.querySelectorAll('.dynamic-box');
-        // Count only dynamic boxes
-        var rows = dynamicBoxes.length / 3; // Assuming each row consists of 3 elements that are equal to 1(img/description/data) item/equipment
-
-        return rows;
-    }
-
-    // Update the rental count
-    function updateRentalCount() {
-        var rentalCountElement = document.getElementById('rentalCount');
-        var rowCount = countRows();
-        rentalCountElement.textContent = "Rental Count: " + rowCount;
-    }
-
-    // Call the function initially
-    updateRentalCount();
-</script>
+<script type="module" src="/JAVASCRIPT/user_rental_history.js"></script>
 
 </body>
+<script type="module" src="/JAVASCRIPT/addheader.js"></script>
 </html>
