@@ -48,7 +48,7 @@
     padding: 8px;
 }
 
-button[type="submit"] {
+#changeProfileBtn {
     margin-top: 0;
     padding: 10px 50px;
     cursor: pointer;
@@ -58,7 +58,7 @@ button[type="submit"] {
     border-radius: 5px;
 }
 
-button[type="submit"]:hover {
+#changeProfileBtn:hover {
     background-color: #333;
 }
 
